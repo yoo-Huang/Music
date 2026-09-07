@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 标签选中下划线：仅在底部显示红色横条，其余区域透明 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <solid android:color="#CC3333" />
+            <corners android:radius="1dp" />
+            <size android:height="2dp" />
+        </shape>
+    </item>
+</layer-list>

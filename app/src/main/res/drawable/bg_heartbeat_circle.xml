@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 心动模式按钮圆形背景（粉色渐变 + 涟漪） -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#33FF2D55">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:angle="135"
+                android:endColor="#FE6B8B"
+                android:startColor="#E91E63"
+                android:type="linear" />
+        </shape>
+    </item>
+</ripple>

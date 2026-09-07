@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">仿网易云音乐</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_search">搜索</string>
+    <string name="tab_notes">笔记</string>
+    <string name="tab_mine">我的</string>
+    <string name="tab_discover">发现</string>
+    <string name="tab_ranking">排行</string>
+    <string name="search_hint">搜索音乐</string>
+    <string name="playlist_title">歌单</string>
+    <string name="song_list">歌曲列表</string>
+    <string name="play_all">播放全部</string>
+    <string name="loading">加载中…</string>
+    <string name="network_error">网络请求失败</string>
+    <string name="retry">重试</string>
+    <string name="ranking_tab_all">全部</string>
+    <string name="ranking_tab_artist">歌手</string>
+    <string name="ranking_tab_mv">MV</string>
+    <string name="ranking_tab_album">数字专辑</string>
+    <string name="ranking_tab_sub">细分榜单</string>
+</resources>

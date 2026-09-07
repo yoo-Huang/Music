@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "我的"页面主布局
+    仿网易云音乐风格
+    整体结构：FrameLayout > RecyclerView（多类型 Item）
+    注意：不用 SwipeRefreshLayout —— 它会拦截子 View 的所有触摸事件
+
+    条目类型：
+    1. 用户头部（头像、昵称、等级、关注/粉丝）
+    2. 快捷入口横向滚动（听歌打卡、云贝中心 等）
+    3. 分区标题 + 我创建的歌单（横向滑动）
+    4. 分区标题 + 我收藏的歌单（横向滑动）
+    5. 功能菜单分组（播放记录、最近常听 等）
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_mine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:descendantFocusability="blocksDescendants"
+        android:paddingBottom="128dp" />
+
+</FrameLayout>

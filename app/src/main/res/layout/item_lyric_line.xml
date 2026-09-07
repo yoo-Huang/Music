@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    单行歌词布局
+    - 未高亮状态：灰色 #99FFFFFF，15sp，正常字重
+    - 高亮状态：纯白色 #FFFFFF，18sp，加粗（通过 Adapter bind 动态切换）
+    - 翻译行：灰色 #66FFFFFF，12sp
+    - paddingVertical 10dp 保证行间距舒适，避免歌词过于拥挤
+    - gravity="center" 使每行歌词水平居中
+-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_lyric_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingVertical="10dp"
+    android:textColor="#99FFFFFF"
+    android:textSize="15sp"
+    android:lineSpacingExtra="2dp"
+    android:maxLines="2"
+    android:ellipsize="end" />

@@ -1,0 +1,14 @@
+# IDE缓存
+.idea/
+.kotlin/
+
+# gradle缓存
+.gradle/
+build/
+
+#本机SDK路径，每个人电脑不一样
+local.properties
+
+#编译输出
+*.apk
+*.aab

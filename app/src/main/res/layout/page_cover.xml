@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    封面页布局（唱片旋转效果）
+    - 黑胶唱片底盘在旋转容器中旋转
+    - 封面在旋转容器中也一起旋转，位于唱片中央
+    - 封面使用 160dp 固定尺寸确保完美正圆，不随屏幕拉伸变形
+    - 封面用 Glide CircleCrop 加载，CardView cardCornerRadius=180dp 做圆形裁剪
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- 唱片旋转容器
+         宽高 = 屏幕宽度 * 0.7，DimensionRatio=1:1 保证正方形 -->
+    <FrameLayout
+        android:id="@+id/rotating_disc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintDimensionRatio="1:1">
+
+        <!-- 唱片黑色底盘（黑胶纹理） -->
+        <View
+            android:id="@+id/disc_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_vinyl_disc" />
+
+        <!-- 专辑封面：固定 160dp 正方形，居中于唱片中央
+             CardView 做圆形裁剪，cardCornerRadius 设为极大值
+             封面 ImageView 由 Glide 加载并做 CircleCrop -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_cover"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="180dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/iv_album_art"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="专辑封面" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

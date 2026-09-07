@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "我的"页面 - 歌单列表项（纵向）
+    封面 + 歌名 + 副标题（N首·播放N次·作者）+ 可选心动按钮
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="10dp">
+
+    <!-- 封面 -->
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:contentDescription="歌单封面"
+        android:scaleType="centerCrop"
+        tools:background="#EEEEEE" />
+
+    <!-- 文字区域 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- 歌单名 -->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            tools:text="我喜欢的音乐" />
+
+        <!-- 副标题：N首·播放N次·作者 -->
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            tools:text="32首·播放1.2万·音乐爱好者" />
+    </LinearLayout>
+
+    <!-- 心动模式按钮（仅"我喜欢的音乐"显示） -->
+    <ImageView
+        android:id="@+id/btn_heartbeat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_heartbeat_circle"
+        android:clickable="true"
+        android:contentDescription="心动模式智能播放"
+        android:focusable="true"
+        android:padding="6dp"
+        android:src="@drawable/ic_heart_play"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</LinearLayout>

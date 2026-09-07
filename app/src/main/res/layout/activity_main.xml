@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    双层底部分层界面
+    从上到下层级：
+      ① 页面内容区域 (fragment_container)
+      ② 悬浮播放栏 (mini_player_placeholder)
+      ③ 底部导航标签栏 (bottom_navigation)
+
+    约束关系：
+      - 内容区域 bottom → 播放栏 top（内容不被播放栏遮挡）
+      - 播放栏 bottom → 导航栏 top + margin（两层分开不贴合）
+      - 导航栏 bottom → parent bottom（紧贴屏幕底端）
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
+
+    <!--
+        ===================== ① 页面内容区域 =====================
+        顶部对齐 parent，底部约束到播放栏顶部
+        播放栏隐藏(GONE)时，goneMargin=0 让内容撑满
+    -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!--
+        ===================== ② 悬浮播放栏占位容器 =====================
+        - 底部约束到导航栏分隔线顶部，留 8dp 空隙形成视觉分层
+        - mini_player_placeholder 隐藏时 goneMarginBottom=0，导航栏分隔线顶上
+        - MiniPlayerManager 将 layout_mini_player.xml 动态注入此容器
+        - 播放栏自身通过 bg_mini_player 实现白色背景 + 顶部圆角 + elevation 悬浮
+    -->
+    <FrameLayout
+        android:id="@+id/mini_player_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/nav_separator"
+        app:layout_goneMarginBottom="0dp" />
+
+    <!--
+        ===================== 导航栏顶部分隔区 =====================
+        在播放栏和底部导航之间形成清晰的视觉分界
+        - 渐变阴影 (nav_shadow)：4dp 高度，从透明到浅灰
+        - 细分割线 (nav_divider)：1dp 高度，浅灰色
+    -->
+    <View
+        android:id="@+id/nav_separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintBottom_toTopOf="@id/nav_shadow" />
+
+    <View
+        android:id="@+id/nav_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/shadow_top_gradient"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
+
+    <!--
+        ===================== ③ 底部导航标签栏 =====================
+        紧贴屏幕底端，包含首页/排行榜/我的三个选项
+        选中态：主红色 (#EC4141) 高亮
+        未选中态：灰色
+        系统导航栏 inset 在代码中通过 bottomMargin 处理
+    -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#F8F8F8"
+        android:clipToPadding="false"
+        app:elevation="0dp"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemActiveIndicatorStyle="@null"
+        app:itemTextAppearanceActive="@style/BottomNavTextActive"
+        app:itemTextAppearanceInactive="@style/BottomNavTextInactive"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

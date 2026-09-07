@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mini_player"
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:background="@drawable/bg_mini_player"
+    android:elevation="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:outlineProvider="background"
+    tools:ignore="UnusedAttribute">
+
+    <!--
+        顶部细进度条 — 视觉提示播放进度
+        背景灰色 + 前景红色
+    -->
+    <View
+        android:id="@+id/mini_progress_bg"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="#EEEEEE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/mini_progress"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="#EC4141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+        圆形歌曲封面 — 左侧48dp，Glide CircleCrop 裁剪为圆形
+    -->
+    <ImageView
+        android:id="@+id/mini_cover"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="14dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:contentDescription="当前播放"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mini_progress" />
+
+    <!--
+        歌曲信息区域 — 名称 + 歌手
+        中间位置，左边约束封面，右边约束按钮起点
+    -->
+    <LinearLayout
+        android:id="@+id/mini_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mini_btn_prev"
+        app:layout_constraintStart_toEndOf="@id/mini_cover"
+        app:layout_constraintTop_toBottomOf="@id/mini_progress">
+
+        <TextView
+            android:id="@+id/mini_song_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="歌曲名称" />
+
+        <TextView
+            android:id="@+id/mini_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="歌手名称" />
+    </LinearLayout>
+
+    <!-- 上一首 -->
+    <ImageView
+        android:id="@+id/mini_btn_prev"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@android:drawable/ic_media_previous"
+        android:tint="#666666"
+        android:padding="6dp"
+        android:contentDescription="上一首"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mini_btn_play"
+        app:layout_constraintTop_toBottomOf="@id/mini_progress" />
+
+    <!-- 播放/暂停 -->
+    <ImageView
+        android:id="@+id/mini_btn_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@android:drawable/ic_media_play"
+        android:tint="#EC4141"
+        android:padding="6dp"
+        android:contentDescription="播放暂停"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mini_btn_next"
+        app:layout_constraintTop_toBottomOf="@id/mini_progress" />
+
+    <!-- 下一首 -->
+    <ImageView
+        android:id="@+id/mini_btn_next"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="10dp"
+        android:src="@android:drawable/ic_media_next"
+        android:tint="#666666"
+        android:padding="6dp"
+        android:contentDescription="下一首"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mini_progress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

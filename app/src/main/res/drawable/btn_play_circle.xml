@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 播放全部按钮图标：红色圆形 + 白色播放三角形 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 红色圆形背景 -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#EC4141" />
+            <size android:width="36dp" android:height="36dp" />
+        </shape>
+    </item>
+    <!-- 白色播放三角形 -->
+    <item
+        android:gravity="center"
+        android:width="12dp"
+        android:height="12dp">
+        <rotate
+            android:fromDegrees="90"
+            android:toDegrees="90"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFFFFF" />
+                <corners android:radius="1dp" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>
+

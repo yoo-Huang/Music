@@ -1,0 +1,86 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
+}
+
+android {
+    namespace 'com.example.myapplication'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+    // AndroidX 基础
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.activity
+    implementation libs.androidx.constraintlayout
+
+    // 网络请求 - OkHttp
+    implementation libs.okhttp
+    implementation libs.okhttp.logging
+
+    // 协程
+    implementation libs.coroutines.core
+    implementation libs.coroutines.android
+
+    // Room 数据库
+    implementation libs.room.runtime
+    implementation libs.room.ktx
+    ksp libs.room.compiler
+
+    // 图片加载 - Glide
+    implementation libs.glide
+    annotationProcessor libs.glide.compiler
+
+    // Navigation 导航
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+
+    // Lifecycle 生命周期
+    implementation libs.lifecycle.viewmodel
+    implementation libs.lifecycle.livedata
+    implementation libs.lifecycle.runtime
+
+    // JSON 解析
+    implementation libs.gson
+
+    // 下拉刷新
+    implementation libs.swiperefreshlayout
+
+    // ViewPager2
+    implementation libs.viewpager2
+
+    // Media (通知栏媒体控制)
+    implementation libs.media
+
+    // 测试
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+}

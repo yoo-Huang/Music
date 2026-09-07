@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    默认专辑封面占位图
+    灰色圆角矩形 + 音符图标，适配深色/浅色主题
+    当图片加载失败或 URL 为空时显示
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- 灰色圆角背景 -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M0,0h200v200h-200z" />
+
+    <!-- 音符图标 -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M115,40 C115,38 113,36 111,36 L65,46 C63,46.5 62,48 62,50 L62,130 C62,132 63,134 65,134 L85,134 C85,134 85,130 85,130 C80,128 77,123 77,118 C77,111 82,106 89,106 C96,106 101,111 101,118 C101,125 96,130 89,130 L75,130 L75,60 L105,52 L105,110 C105,112 106,114 108,114 L128,114 C128,114 128,110 128,110 C123,108 120,103 120,98 C120,91 125,86 132,86 C139,86 144,91 144,98 C144,105 139,110 132,110 L118,110 L118,40 L115,40Z" />
+</vector>

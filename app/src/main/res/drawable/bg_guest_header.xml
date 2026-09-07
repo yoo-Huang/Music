@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 未登录头部 - 更深邃的红色渐变，营造音乐氛围 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#D32F2F"
+        android:centerColor="#C62828"
+        android:endColor="#891616"
+        android:type="linear" />
+</shape>
