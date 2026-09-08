@@ -100,7 +100,12 @@ docs/screenshots/
 ├── ranking.png       # 排行榜页
 ├── search.png        # 搜索页（热搜 + 结果）
 └── mine.png          # 个人中心页
-
+![首页发现页](docs/screenshots/home.png)
+![播放器歌词滚动页](docs/screenshots/player_lyric.png)
+![播放器黑胶唱片页](docs/screenshots/player_disc.png)
+![排行榜页](docs/screenshots/ranking.png)
+![搜索页](docs/screenshots/search.png)
+![个人中心页](docs/screenshots/mine.png)
 
 ---
 
